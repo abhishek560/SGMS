@@ -1,0 +1,474 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+
+<!-- /index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Mar 2020 08:13:46 GMT -->
+<head>
+  <meta charset="utf-8">
+  <title>Student-Grievance</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{% static 'plugins/bootstrap/bootstrap.min.css'%}">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="{% static 'plugins/slick/slick.css' %}">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="{% static 'plugins/themify-icons/themify-icons.css'%}">
+  <!-- animation css -->
+  <link rel="stylesheet" href="{% static 'plugins/animate/animate.css'%}">
+  <!-- aos -->
+  <link rel="stylesheet" href="{% static 'plugins/aos/aos.css'%}">
+  <!-- venobox popup -->
+  <link rel="stylesheet" href="{% static 'plugins/venobox/venobox.css'%}">
+
+  <!-- Main Stylesheet -->
+  <link href="{% static 'css/style.css'%}" rel="stylesheet">
+  
+  <!--Favicon-->
+  <link rel="shortcut icon" href="{% static 'images/favicon.html'%}" type="image/x-icon">
+  <link rel="icon" href="{% static 'images/favicon.html'%}" type="image/x-icon">
+
+</head>
+<body>
+  
+
+<!-- header -->
+<header class="fixed-top header">
+  <!-- top header -->
+  <div class=" fluid-container top-header py-2 bg-white">
+    <div class="container">
+      <div class="row no-gutters">  <!--
+        <div class=" col-lg-4 text-center text-lg">
+          <a class="text-color mr-3" href="{% static 'callto:+443003030266'%}"><strong>CALL</strong> +44 300 303 0266</a>
+          <ul class="list-inline d-inline">
+            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="ti-facebook"></i></a></li>
+            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="ti-linkedin"></i></a></li>
+            <li class="list-inline-item mx-0"><a class="d-inline-block p-2 text-color" href="#"><i class="ti-instagram"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-lg-8 text-center text-lg-right">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="{% static 'notice.html'%}">notice</a></li>
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="{% static 'research.html'%}">research</a></li>
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="{% static 'scholarship.html'%}">SCHOLARSHIP</a></li>
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#" data-toggle="modal" data-target="#loginModal">login</a></li>
+            <li class="list-inline-item"><a class="text-uppercase text-color p-sm-2 py-2 px-0 d-inline-block" href="#" data-toggle="modal" data-target="#signupModal">register</a></li>
+          </ul>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <!-- navbar -->
+  <div class="navigation w-100">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-light p-0">
+        <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'images/logo4.png'%}" alt="logo"></a>
+        <button class="navbar-toggler rounded-0" type="button" data-toggle="collapse" data-target="#navigation"
+          aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navigation">
+          <ul class="navbar-nav ml-auto text-center">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item @@about">
+              <a class="nav-link" href="{% url 'about' %}">About Us</a>
+            </li>
+              <!--
+            <li class="nav-item @@events">
+              <a class="nav-link" href="{% static 'events.html'%}">EVENTS</a>
+            </li>
+            <li class="nav-item @@blog">
+              <a class="nav-link" href="{% static 'blog.html'%}">BLOG</a>
+            </li> -->
+            <li class="nav-item dropdown view">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Committee Member Login
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'dep' %}">Department Level</a>
+                <a class="dropdown-item" href="{% url 'clg' %}">College Level</a>
+                <a class="dropdown-item" href="{% url 'univ' %}">University Level</a>
+                 <!--
+                <a class="dropdown-item" href="{% static 'notice-single.html'%}">Notice Details</a>
+                <a class="dropdown-item" href="{% static 'research.html'%}">Research</a>
+                <a class="dropdown-item" href="{% static 'scholarship.html'%}">Scholarship</a>
+                <a class="dropdown-item" href="{% static 'course-single.html'%}">Course Details</a>
+                <a class="dropdown-item" href="{% static 'event-single.html'%}">Event Details</a>
+                <a class="dropdown-item" href="{% static 'blog-single.html'%}">Blog Details</a> -->
+              </div>
+            </li>
+            {% if user.is_authenticated %}
+              <li class="nav-item @@courses">
+
+                <a class="nav-link username" href="#">Hello&nbsp&nbsp{{user.first_name}}</a>
+            </li>
+             <li class="nav-item @@courses">
+             <a class="nav-link" href="{% url 'form'%}">Grievance Form</a>
+            </li>
+            <li class="nav-item @@courses">
+
+              <a class="nav-link" href="{% url 'logout'%}">Logout</a>
+            </li>
+
+
+                   {% else %}
+              <li class="nav-item @@courses">
+                  <a class="nav-link" href="{% url 'register'%}">Register</a>
+            </li>
+            <li class="nav-item @@contact">
+
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+                         {% endif %}
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>
+<!-- /header -->
+<!-- Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content rounded-0 border-0 p-4">
+            <div class="modal-header border-0">
+                <h3>Register</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="login">
+                    <form action="save_register" class="row">
+                        <div class="col-12">
+                            <input type="text" class="form-control mb-3" id="signupPhone" name="signupPhone" placeholder="Phone">
+                        </div>
+                        <div class="col-12">
+                            <input type="text" class="form-control mb-3" id="signupName" name="signupName" placeholder="Name">
+                        </div>
+                        <div class="col-12">
+                            <input type="email" class="form-control mb-3" id="signupEmail" name="signupEmail" placeholder="Email">
+                        </div>
+                        <div class="col-12">
+                            <input type="password" class="form-control mb-3" id="signupPassword" name="signupPassword" placeholder="Password">
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content rounded-0 border-0 p-4">
+            <div class="modal-header border-0">
+                <h3>Login</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="#" class="row">
+                    <div class="col-12">
+                        <input type="text" class="form-control mb-3" id="loginPhone" name="loginPhone" placeholder="Phone">
+                    </div>
+                    <div class="col-12">
+                        <input type="text" class="form-control mb-3" id="loginName" name="loginName" placeholder="Name">
+                    </div>
+                    <div class="col-12">
+                        <input type="password" class="form-control mb-3" id="loginPassword" name="loginPassword" placeholder="Password">
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">LOGIN</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- hero slider -->
+<section class="hero-section overlay bg-cover" data-background="{% static 'images/banner/banner-1.jpg'%}">
+  <div class="container">
+    <div class="hero-slider">
+      <!-- slider item -->
+      <div class="hero-slider-item">
+        <div class="row">
+          <div class="col-md-8">
+            <h1 class="text-white" data-animation-out="fadeOutRight" data-delay-out="4" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".1">Your bright future is our mission</h1>
+            <p class="text-muted mb-4" data-animation-out="fadeOutRight" data-delay-out="4" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".4">Our purpose is very simple
+              to do all necessary things whatever we can do from our end, to help the Students from any way, any time.
+             </p>
+            <a href="{% url 'register'%}" class="btn btn-primary" data-animation-out="fadeOutRight" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInLeft" data-delay-in=".7">Join Us</a>
+          </div>
+        </div>
+      </div>
+      <!-- slider item -->
+      <div class="hero-slider-item">
+        <div class="row">
+          <div class="col-md-8">
+            <h1 class="text-white" data-animation-out="fadeOutUp" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".1">If you can think you can do</h1>
+            <p class="text-muted mb-4" data-animation-out="fadeOutUp" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".4">It's as much correct as the Sun rises in the east, that if can imagine to forecast anything
+              Eventualy one day defenetly id will become a reality.
+              </p>
+            <a href="{% url 'register'%}" class="btn btn-primary" data-animation-out="fadeOutUp" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInDown" data-delay-in=".7">Join Us</a>
+          </div>
+        </div>
+      </div>
+      <!-- slider item -->
+      <div class="hero-slider-item">
+        <div class="row">
+          <div class="col-md-8">
+            <h1 class="text-white" data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".1">Just believe on yourself</h1>
+            <p class="text-muted mb-4" data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="fadeInUp" data-delay-in=".4">In this whole world nothing is more efficient than <u>Will power</u>
+              </p>
+            <a href="{% url 'register'%}" class="btn btn-primary" data-animation-out="fadeOutDown" data-delay-out="5" data-duration-in=".3" data-animation-in="zoomIn" data-delay-in=".7">Join Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /hero slider -->
+
+<!-- banner-feature -->
+<section class="bg-gray">
+  <div class="container-fluid p-0">
+    <div class="row no-gutters">
+      <div class="col-xl-4 col-lg-5 align-self-end">
+        <img class="img-fluid w-100" src="{% static 'images/banner/banner-feature.png'%}" alt="banner-feature">
+      </div>
+      <div class="col-xl-8 col-lg-7">
+        <div class="row feature-blocks bg-gray justify-content-between">
+          <div class="col-sm-6 col-xl-5 mb-xl-5 mb-lg-3 mb-4 text-center text-sm-left">
+              <i class="ti-write mb-xl-4 mb-lg-3 mb-4 feature-icon"></i>
+            <h3 class="mb-xl-4 mb-lg-3 mb-4">Our Fascilities</h3>
+            <p>We provide a platform, where students can easily share their experiences and problems with the decision making higher
+                authorities.</p>
+          </div>
+          <div class="col-sm-6 col-xl-5 mb-xl-5 mb-lg-3 mb-4 text-center text-sm-left">
+              <i class="ti-book mb-xl-4 mb-lg-3 mb-4 feature-icon"></i>
+
+            <h3 class="mb-xl-4 mb-lg-3 mb-4">Our Mission</h3>
+            <p>We work with the very simple mission that, No any student,In any college should face unwanted,unwilling and embaracing situation that can harm his/her
+            mental stability.</p>
+          </div>
+          <div class="col-sm-6 col-xl-5 mb-xl-5 mb-lg-3 mb-4 text-center text-sm-left">
+            <i class="ti-agenda mb-xl-4 mb-lg-3 mb-4 feature-icon"></i>
+            <h3 class="mb-xl-4 mb-lg-3 mb-4">Our Way of Working</h3>
+            <p>We are working on very simple logic. As anyone files Grievance at any level.<br>
+              It is directly sended to it's corresponding level as student mentions in it's Grievance Form.</p>
+          </div>
+          <div class="col-sm-6 col-xl-5 mb-xl-5 mb-lg-3 mb-4 text-center text-sm-left">
+             <i class="ti-blackboard mb-xl-4 mb-lg-3 mb-4 feature-icon"></i>
+            <h3 class="mb-xl-4 mb-lg-3 mb-4">Our Committee Member's</h3>
+            <p>Our Grievance handeling committee members are very intelligent and experienced to handle such Grievances. They are selected by the
+            Organization itself.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /banner-feature -->
+
+<!-- about us -->
+<section class="section">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 order-2 order-md-1">
+        <h2 class="section-title">About SGMS</h2>
+        <p>SGMS is not just a website, It was a dream of a student to develop something unique for students, So that they can easily share their "Thoughts , Suggestions
+             and Grievances" to the higher Authorities of the Colleges and Universities etc.<br>
+            <b>How It Works&nbsp:</b><br>
+        Whenever any Student comes to us and Register himself/herself in our website then ultimayely he/she becomes eligible to file any Grievance
+        on different-2 levels (like Department/College/University etc.) After filling the Grievance Form Successfuly ultimately, It is sent to our Grievance Committee
+        members at different-different levels. As you can see in the Navigation bar also.Our Committee members will look on your Grievance. If it will
+        be found genuine then Immediately possilbe legal actions will be taken.</p>
+        <a href="{% url 'register'%}" class="btn btn-primary-outline">Register Now</a>
+      </div>
+      <div class="col-md-6 order-1 order-md-2 mb-4 mb-md-0">
+        <img class="img-fluid w-100" src="{% static 'images/about/about-us.jpg'%}" alt="about image">
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /about us -->
+
+
+<!-- cta -->
+<section class="section bg-primary  mb-4">
+  <div class="container ">
+    <div class="row">
+      <div class="col-12 text-center">
+        <h6 class="text-white font-secondary mb-0">Click to Join an Organization,Which have single moto to help Students.</h6>
+        <h2 class="section-title text-white">Be An SGMS's</h2>
+        <a href="{% url 'register'%}" class="btn btn-secondary">Join Us</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /cta -->
+
+<!-- success story -->
+<section id="imp" class="section bg-cover  mb-4" data-background="{% static 'images/backgrounds/success-story.jpg'%}">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-sm-8 position-relative success-video mx-5 mb-2">
+        <!--<a class="play-btn venobox" href="{% static 'https://youtu.be/nA1Aqp0sPQo'%}" data-vbtype="video">
+          <i class="ti-control-play"></i>
+        </a> -->
+
+    <div class="size card p-0 border-primary rounded-0 hover-shadow">
+      <img class="card-img-top rounded-0 img-thumbnail" src="{% static 'images/IMG_856.jpg' %}" alt="course thumb">
+      <div class="card-body">
+        <ul class="list-inline mb-2">
+          <li class="list-inline-item"><u class="text-color">Developed B</u>y</li>
+        </ul>
+
+          <h4 class="card-title">Er. Ashutosh Singh Chauhan</h4>
+        <p class="card-text ">For asking any questions and providing suggestions meet me on Instagram.</p>
+        <a href="https://www.instagram.com/ashutosh_chauhan_13/?hl=en" target="__blank" class="btn btn-primary btn-sm">Instagram</a>
+
+      </div>
+
+  </div>
+      </div>
+      <div class="col-lg-6 col-sm-8">
+        <div class="bg-white p-5">
+          <h2 class="section-title">Development Story</h2>
+          <p class="mt-5">The development story of this Django Website is surely very interesting, As It was my first ever hudge project. However I have developed
+          other projects on Django, but those were mini projects. On that I have dicided to work Individually on this Project.</p><br>
+        <p>Now the development work started as I already mentioned I have decided to work this time Individually and from very basics (Scratches).
+            In beginning lots of problems came, but thanks to <b>StackOverFlow</b> and <b>Django-Documentation</b>  that helped me a lot. Almost I got solutions of my all the problems
+            from there. Eventually I succeed in my aim. People right Says &nbsp:&nbsp<b>Where there is a will, there is a way.</b></p>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /success story -->
+
+
+
+<!-- footer -->
+<footer>
+  <!-- newsletter -->
+  <!-- <div class="newsletter">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9 ml-auto bg-primary py-5 newsletter-block">
+          <h3 class="text-white">Subscribe Now</h3>
+          <form action="#">
+            <div class="input-wrapper">
+              <input type="email" class="form-control border-0" id="newsletter" name="newsletter" placeholder="Enter Your Email...">
+              <button type="submit" value="send" class="btn btn-primary">Join</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>   -->
+  <!-- footer content -->
+  <div class="footer bg-footer section border-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-12 mb-5">
+          <!-- logo -->
+          <a class="logo-footer" href="{% url 'index' %}"><img class="img-fluid mb-4" src="{% static 'images/logo4.png'%}" alt="logo"></a>
+          <ul class="list-unstyled">
+            <li class="mb-2">Address</li>
+            <li class="mb-2">+Mobile Number</li>
+            <li class="mb-2">+Lanline Number</li>
+            <li class="mb-2">contact@yourdomain.com</li>
+          </ul>
+        </div>
+        <!-- company -->
+        <div class="col-md-3 col-sm-6 col-5 mb-5">
+          <h4 class="text-white mb-5">Organization</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="{% url 'about'%}">About Us</a></li>
+
+          </ul>
+        </div>
+        <!-- links -->
+        <div class="col-md-3 col-sm-6  col-4 mb-5">
+          <h4 class="text-white mb-5">LINKS</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="{% url 'gallery' %}">Gallery</a></li>
+
+          </ul>
+        </div>
+        <!-- support -->
+        <div class="col-md-3 col-sm-6 col-3 mb-5">
+          <h4 class="text-white mb-5">Doubt-Session</h4>
+          <ul class="list-unstyled">
+            <li class="mb-3"><a class="text-color" href="{% url 'faqs' %}">FAQS</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <!-- copyright -->
+  <div class="copyright py-4 bg-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-7 text-sm-left text-center">
+          <p class="mb-0">Copyright
+            <script>
+              var CurrentYear = new Date().getFullYear()
+              document.write(CurrentYear)
+            </script>
+           © Created By <a href="#imp">Ashutosh Singh Chauhan </a></p> All Righ Reserved.
+        </div>
+        <div class="col-sm-5 text-sm-right text-center">
+          <ul class="list-inline">
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://m.facebook.com/spec.squad.7?pn_ref=ec_friends_card" target="__blank"><i class="ti-facebook text-primary"></i></a></li>
+
+            <li class="list-inline-item"><a class="d-inline-block p-2" href="https://www.instagram.com/ashutosh_chauhan_13/?hl=en" target="__blank"><i class="ti-instagram text-primary"></i></a></li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- /footer -->
+
+<!-- jQuery -->
+<script src="{% static 'plugins/jQuery/jquery.min.js'%}"></script>
+<!-- Bootstrap JS -->
+<script src="{% static 'plugins/bootstrap/bootstrap.min.js'%}"></script>
+<!-- slick slider -->
+<script src="{% static 'plugins/slick/slick.min.js'%}"></script>
+<!-- aos -->
+<script src="{% static 'plugins/aos/aos.js'%}"></script>
+<!-- venobox popup -->
+<script src="{% static 'plugins/venobox/venobox.min.js'%}"></script>
+<!-- mixitup filter -->
+<script src="{ static 'plugins/mixitup/mixitup.min.js'}"></script>
+<!-- google map -->
+<script src="{% static 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&amp;libraries=places'%}"></script>
+<script src="{% static 'plugins/google-map/gmap.js'%}"></script>
+
+<!-- Main Script -->
+<script src="{% static 'js/script.js'%}"></script>
+
+</body>
+
+<!-- Mirrored from demo.themefisher.com/educenter/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 07 Mar 2020 08:14:41 GMT -->
+</html>
